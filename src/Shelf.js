@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import Books from './Books';
 
-class Libraries extends Component {
+class Shelf extends Component {
 	render() {
 		return (
 			<div className="bookshelf">
@@ -16,4 +16,4 @@ class Libraries extends Component {
 	}
 }
 
-export default Libraries
+export default Shelf

@@ -1,7 +1,15 @@
 import React,{Component} from 'react'
-import Libraries from '../Libraries';
+import Shelf from '../Shelf'
+import {getAll} from '../BooksAPI'
 
 class Homepage extends Component {
+	componentDidMount() {
+		getAll().then((books)=> {
+			console.log(books);
+		}).catch((err)=>{
+			console.log(err);
+		})
+	}
 	render() {
 		return (
 			<div className="list-books">
@@ -10,9 +18,9 @@ class Homepage extends Component {
 				</div>
 				<div className="list-books-content">
 					<div>
-						<Libraries heading='Currently Reading'/>
-						<Libraries heading='Want to Read'/>
-						<Libraries heading='Read'/>
+						<Shelf heading='Currently Reading'/>
+						<Shelf heading='Want to Read'/>
+						<Shelf heading='Read'/>
 					</div>
 				</div>
 				<div className="open-search">
