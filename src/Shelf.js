@@ -7,9 +7,9 @@ class Shelf extends Component {
 			<div className="bookshelf">
 				<h2 className="bookshelf-title">{this.props.heading}</h2>
 				<div className="bookshelf-books">
-				<ol className="books-grid">
-					<Books/>
-				</ol>
+					<ol className="books-grid">
+						{this.props.bookCollection.map(book => <Books bookLists={book}/>)}
+					</ol>
 				</div>
 			</div>
 		)
