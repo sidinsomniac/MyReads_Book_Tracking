@@ -3,13 +3,14 @@ import Books from './Books';
 
 class Shelf extends Component {
 	render() {
+		const {heading,allBooks,shelfId} = this.props;
 		return (
 			<div className="bookshelf">
-				<h2 className="bookshelf-title">{this.props.heading}</h2>
+				<h2 className="bookshelf-title">{heading}</h2>
 				<div className="bookshelf-books">
 					<ol className="books-grid">
-						{this.props.allBooks
-							.filter(books => books.shelf === this.props.shelfId)
+						{allBooks
+							.filter(books => books.shelf === shelfId)
 							.map(book => <Books key={book.id} bookLists={book}/>)}
 					</ol>
 				</div>

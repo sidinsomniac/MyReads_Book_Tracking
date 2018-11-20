@@ -16,6 +16,8 @@ class Homepage extends Component {
 		})
 	}	
 	render() {
+		const {allBooks} = this.state;
+
 		return (
 			<div className="list-books">
 				<div className="list-books-title">
@@ -23,14 +25,14 @@ class Homepage extends Component {
 				</div>
 				<div className="list-books-content">
 					<div>
-						<Shelf key={this.state.allBooks.shelf} shelfId='currentlyReading' heading='Currently Reading' allBooks={this.state.allBooks}/>
-						<Shelf key={this.state.allBooks.shelf} shelfId='wantToRead' heading='Want to Read' allBooks={this.state.allBooks}/>
-						<Shelf key={this.state.allBooks.shelf} shelfId='read' heading='Read' allBooks={this.state.allBooks}/>
+						<Shelf key={allBooks.shelf} shelfId='currentlyReading' heading='Currently Reading' allBooks={allBooks}/>
+						<Shelf key={allBooks.shelf} shelfId='wantToRead' heading='Want to Read' allBooks={allBooks}/>
+						<Shelf key={allBooks.shelf} shelfId='read' heading='Read' allBooks={allBooks}/>
 					</div>
 				</div>
-				<div className="open-search">
+				{/* <div className="open-search">
 					<button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
-				</div>
+				</div> */}
 			</div>
 		)
 	}
