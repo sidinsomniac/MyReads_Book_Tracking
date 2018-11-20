@@ -4,18 +4,12 @@ import {getAll} from '../BooksAPI'
 
 class Homepage extends Component {
 	state = {
-		allBooks : [],
-		currentlyReading: [],
-		wantToRead: [],
-		read: []
+		allBooks : []
 	}
 	componentDidMount() {
 		getAll().then((books)=> {
 			this.setState({
-				allBooks: books,
-				currentlyReading: books.filter((book)=> book.shelf==='currentlyReading'),
-				wantToRead: books.filter((book)=> book.shelf==='wantToRead'),
-				read: books.filter((book)=> book.shelf==='read')
+				allBooks: books
 			});
 		}).catch((err)=>{
 			console.log(err);
@@ -29,9 +23,9 @@ class Homepage extends Component {
 				</div>
 				<div className="list-books-content">
 					<div>
-						<Shelf heading='Currently Reading' bookCollection={this.state.currentlyReading}/>
-						<Shelf heading='Want to Read' bookCollection={this.state.wantToRead}/>
-						<Shelf heading='Read' bookCollection={this.state.read}/>
+						<Shelf key={this.state.allBooks.shelf} shelfId='currentlyReading' heading='Currently Reading' allBooks={this.state.allBooks}/>
+						<Shelf key={this.state.allBooks.shelf} shelfId='wantToRead' heading='Want to Read' allBooks={this.state.allBooks}/>
+						<Shelf key={this.state.allBooks.shelf} shelfId='read' heading='Read' allBooks={this.state.allBooks}/>
 					</div>
 				</div>
 				<div className="open-search">
