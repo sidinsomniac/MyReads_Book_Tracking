@@ -1,22 +1,35 @@
 import React,{Component} from 'react'
 import Shelf from '../Shelf'
-import {getAll} from '../BooksAPI'
+import * as BooksAPI  from '../BooksAPI'
 
 class Homepage extends Component {
 	state = {
 		allBooks : []
 	}
+	
 	componentDidMount() {
-		getAll().then((books)=> {
+		this.getBooks();
+	}
+
+	moveBook = (book,shelf) => {
+		BooksAPI.update(book, shelf).then(this.getBooks);
+	}
+
+	getBooks = () => {
+		BooksAPI.getAll().then((books) => {
 			this.setState({
 				allBooks: books
 			});
-		}).catch((err)=>{
+		}).catch((err) => {
 			console.log(err);
-		})
-	}	
+		});
+	}
+	
+	createShelf = (a,b) => {
+		return (<Shelf key={this.state.allBooks.shelf} shelfId={a} heading={b} allBooks={this.state.allBooks} moveBook = {this.moveBook}/>)
+	}
+	
 	render() {
-		const {allBooks} = this.state;
 
 		return (
 			<div className="list-books">
@@ -25,9 +38,9 @@ class Homepage extends Component {
 				</div>
 				<div className="list-books-content">
 					<div>
-						<Shelf key={allBooks.shelf} shelfId='currentlyReading' heading='Currently Reading' allBooks={allBooks}/>
-						<Shelf key={allBooks.shelf} shelfId='wantToRead' heading='Want to Read' allBooks={allBooks}/>
-						<Shelf key={allBooks.shelf} shelfId='read' heading='Read' allBooks={allBooks}/>
+						{this.createShelf('currentlyReading','Currently Reading')}
+						{this.createShelf('wantToRead','Want to Read')}
+						{this.createShelf('read','Read')}
 					</div>
 				</div>
 				{/* <div className="open-search">
