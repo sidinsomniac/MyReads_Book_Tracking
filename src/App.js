@@ -15,6 +15,7 @@ class BooksApp extends React.Component {
 		this.getBooks();
 	}
 
+	// sets the state to all current books that are in the shelves
 	getBooks = () => {
 		getAll().then((books) => {
 			this.setState({
@@ -24,16 +25,20 @@ class BooksApp extends React.Component {
 			console.log(err);
 		});
 	}
-  
+	
+	// moves and updates the books from one shelf to another selected shelf
 	moveBook = (book,shelf) => {
 		update(book, shelf).then(this.getBooks);
 	}
 
   render() {
+		const {allBooks} = this.state;
     return (
       <div className="app">
-        <Route exact path='/' render={()=>(<Homepage moveBook={this.moveBook} allBooks={this.state.allBooks}/>)}/>
-        <Route path='/search' render={()=>(<Searchpage moveBook={this.moveBook} allBooks={this.state.allBooks}/>)}/>
+				{/* the homepage component */}
+        <Route exact path='/' render={()=>(<Homepage moveBook={this.moveBook} allBooks={allBooks}/>)}/>
+				{/* the searchpage component */}
+        <Route path='/search' render={()=>(<Searchpage moveBook={this.moveBook} allBooks={allBooks}/>)}/>
       </div>
     )
   }

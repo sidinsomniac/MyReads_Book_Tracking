@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 class Homepage extends Component {
 	
-	
+	// small helper function to DRY up the code for creating three shelves
 	createShelf = (a,b) => {
 		return (<Shelf key={this.props.allBooks.shelf} shelfId={a} heading={b} allBooks={this.props.allBooks} moveBook = {this.props.moveBook}/>)
 	}
