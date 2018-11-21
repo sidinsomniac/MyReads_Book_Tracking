@@ -23,7 +23,7 @@ class Searchpage extends Component {
 				this.setState({
 					searchedBooks: books
 				});
-				console.log(this.state.searchedBooks.map(book => book.imageLinks.thumbnail));
+				console.log(this.state.searchedBooks.map(book => book.imageLinks));
 			})
 		} else {
 			this.setState({
