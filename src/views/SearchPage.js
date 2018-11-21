@@ -1,19 +1,52 @@
 import React,{Component} from 'react'
+import { search } from '../BooksAPI'
+import {Link} from 'react-router-dom'
+import Books from '../Books'
+// import escapeRegEx from 'escape-string-regexp'
 
 class Searchpage extends Component {
 	state = {
-		query: ''
+		query: '',
+		searchedBooks: []
 	}
+
 	updateQuery = (query) => {
 		this.setState({
 			query: query
-		})
+		});
+		this.getSearchedBooks(query);
 	}
+
+	getSearchedBooks = (query) => {
+		if (query) {
+			search(query).then((books)=> {
+				this.setState({
+					searchedBooks: books
+				});
+				console.log(this.state.searchedBooks.map(book => book.imageLinks.thumbnail));
+			})
+		} else {
+			this.setState({
+				searchedBooks: []
+			})
+		}
+	}
+
 	render() {
+
+		// if(query) {
+		// 	const match = new RegExp(escapeRegEx(query),'i');
+		// 	showingContacts = contacts.filter(contact => match.test(contact.name));
+		// } else {
+		// 	showingContacts = contacts;
+		// }
+
 		return (
 			<div className="search-books">
 				<div className="search-books-bar">
-				<button className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</button>
+				<Link to='/'>
+					<button className="close-search">Close</button>
+				</Link>
 				<div className="search-books-input-wrapper">
 					{/*
 					NOTES: The search from BooksAPI is limited to a particular set of search terms.
@@ -28,7 +61,9 @@ class Searchpage extends Component {
 				</div>
 				</div>
 				<div className="search-books-results">
-				<ol className="books-grid"></ol>
+				<ol className="books-grid">
+					{this.state.searchedBooks.map( book => <Books bookLists={book} key={book.id}/>)}
+				</ol>
 				</div>
 			</div>
 		)
