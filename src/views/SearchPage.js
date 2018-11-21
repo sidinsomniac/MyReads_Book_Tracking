@@ -20,10 +20,12 @@ class Searchpage extends Component {
 	getSearchedBooks = (query) => {
 		if (query) {
 			search(query).then((books)=> {
-				this.setState({
+				(books.error) ? this.setState({
+						searchedBooks: []
+					})
+				: this.setState({
 					searchedBooks: books
-				});
-				console.log(this.state.searchedBooks.map(book => book.imageLinks));
+				})				
 			})
 		} else {
 			this.setState({
