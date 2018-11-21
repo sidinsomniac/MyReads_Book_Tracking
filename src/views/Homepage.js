@@ -1,33 +1,12 @@
 import React,{Component} from 'react'
 import Shelf from '../Shelf'
-import * as BooksAPI  from '../BooksAPI'
 import {Link} from 'react-router-dom'
 
 class Homepage extends Component {
-	state = {
-		allBooks : []
-	}
 	
-	componentDidMount() {
-		this.getBooks();
-	}
-
-	moveBook = (book,shelf) => {
-		BooksAPI.update(book, shelf).then(this.getBooks);
-	}
-
-	getBooks = () => {
-		BooksAPI.getAll().then((books) => {
-			this.setState({
-				allBooks: books
-			});
-		}).catch((err) => {
-			console.log(err);
-		});
-	}
 	
 	createShelf = (a,b) => {
-		return (<Shelf key={this.state.allBooks.shelf} shelfId={a} heading={b} allBooks={this.state.allBooks} moveBook = {this.moveBook}/>)
+		return (<Shelf key={this.props.allBooks.shelf} shelfId={a} heading={b} allBooks={this.props.allBooks} moveBook = {this.props.moveBook}/>)
 	}
 	
 	render() {
