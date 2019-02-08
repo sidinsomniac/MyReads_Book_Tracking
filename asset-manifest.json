@@ -1,14 +1,14 @@
 {
-  "main.css": "/static/css/main.84ba0c10.chunk.css",
-  "main.js": "/static/js/main.b33ba013.chunk.js",
-  "main.js.map": "/static/js/main.b33ba013.chunk.js.map",
-  "static/js/1.2cce8bce.chunk.js": "/static/js/1.2cce8bce.chunk.js",
-  "static/js/1.2cce8bce.chunk.js.map": "/static/js/1.2cce8bce.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
-  "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/css/main.84ba0c10.chunk.css.map": "/static/css/main.84ba0c10.chunk.css.map",
-  "static/media/App.css": "/static/media/add.75d390e5.svg",
-  "index.html": "/index.html",
-  "precache-manifest.2c8aa9cb820579c08435d45e6c33011d.js": "/precache-manifest.2c8aa9cb820579c08435d45e6c33011d.js",
-  "service-worker.js": "/service-worker.js"
+  "main.css": "/MyReads_Book_Tracking/static/css/main.a062bf24.chunk.css",
+  "main.js": "/MyReads_Book_Tracking/static/js/main.0f9804cd.chunk.js",
+  "main.js.map": "/MyReads_Book_Tracking/static/js/main.0f9804cd.chunk.js.map",
+  "static/js/1.2cce8bce.chunk.js": "/MyReads_Book_Tracking/static/js/1.2cce8bce.chunk.js",
+  "static/js/1.2cce8bce.chunk.js.map": "/MyReads_Book_Tracking/static/js/1.2cce8bce.chunk.js.map",
+  "runtime~main.js": "/MyReads_Book_Tracking/static/js/runtime~main.21e0d7f7.js",
+  "runtime~main.js.map": "/MyReads_Book_Tracking/static/js/runtime~main.21e0d7f7.js.map",
+  "static/css/main.a062bf24.chunk.css.map": "/MyReads_Book_Tracking/static/css/main.a062bf24.chunk.css.map",
+  "static/media/App.css": "/MyReads_Book_Tracking/static/media/add.75d390e5.svg",
+  "index.html": "/MyReads_Book_Tracking/index.html",
+  "precache-manifest.38d498c4ce6a1e2fa408f7d638c75fe4.js": "/MyReads_Book_Tracking/precache-manifest.38d498c4ce6a1e2fa408f7d638c75fe4.js",
+  "service-worker.js": "/MyReads_Book_Tracking/service-worker.js"
 }
